@@ -20,6 +20,11 @@ set showtabline=2
 set noshowmode
 set showtabline=0
 
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
@@ -35,7 +40,10 @@ Plug 'leafgarland/typescript-vim'
 Plug 'vim-utils/vim-man'
 Plug 'lyuts/vim-rtags'
 Plug 'kien/ctrlp.vim'
-Plug 'ycm-core/YouCompleteMe'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+"Plug 'ycm-core/YouCompleteMe'
 Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
 Plug 'prettier/vim-prettier', {
@@ -75,6 +83,15 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 
+let g:gruvbox_contrast_dark = 'hard'
+
+if exists('+termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+endif
+let g:gruvbox_invert_selection='0'
+
+
 nnoremap <leader>h :wincmd h<CR>
 nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
@@ -82,6 +99,18 @@ nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
 nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 nnoremap <Leader>ps :Rg<SPACE>
+
+"nnoremap <silent> <leader>gd :YcmCompleter GoTo<CR>
+"nnoremap <silent><leader>gr :YcmCompleter GoToReferences<CR>
+
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gy <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
+nmap <leader>gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
+
+
+
 
 nnoremap <Leader>+ :vertical resize +5<CR>
 nnoremap <Leader>- :vertical resize -5<CR>
