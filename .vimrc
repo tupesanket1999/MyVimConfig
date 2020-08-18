@@ -1,6 +1,5 @@
 syntax on
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-"autocmd vimenter * colorscheme gruvbox
 
 set encoding=utf-8
 set tabstop=4
@@ -127,6 +126,10 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>u :UndotreeShow<CR>
+
+nmap <leader> :tabn<CR>
+nmap <leader> :tabp<CR>
+
 "nnoremap <leader>pv :wincmd v<bar> :Ex <bar> :vertical resize 30<CR>
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <Leader>ps :Rg<SPACE>
